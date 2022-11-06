@@ -113,7 +113,7 @@ app.get("/states/",authenticateToken,async(request, response) => {
 app.get("/states/:stateId/",authenticateToken,async(request,response)=>{
     const{stateId}=request.params
     const getStateQuery=`
-    SELECT * FROM state WHERE state_id='${stateId};'`
+    SELECT * FROM state WHERE state_id='${stateId}'`
 const state = await database.get(getStateQuery)
 response.send(convertStateObjectToResponseObject(state))
 })
